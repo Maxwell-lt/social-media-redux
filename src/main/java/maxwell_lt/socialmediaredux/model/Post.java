@@ -26,17 +26,23 @@ public class Post {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
+
     @Column(name = "title", nullable = false, length = 100)
     String title;
+
     @Column(name = "imageId", length = 36)
     String imageId;
+
     @Column(name = "text")
     String text;
+
     @ManyToOne
     @JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
     User user;
+
     @Column(name = "timestamp", nullable = false)
     Timestamp timestamp;
+
     @Column(name = "deleted", nullable = false)
     boolean deleted;
 }

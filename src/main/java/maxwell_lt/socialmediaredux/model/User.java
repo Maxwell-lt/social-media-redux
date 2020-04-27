@@ -25,22 +25,31 @@ public class User {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
+
     @Column(name = "username", nullable = false, length = 50)
     String username;
+
     @Column(name = "password", nullable = false, length = 60)
     String password;
+
     @Column(name = "email", nullable = false, length = 254)
     String email;
+
     @Column(name = "creationDate", nullable = false)
     Timestamp creationDate;
+
     @Column(name = "currentLikes", nullable = false, precision = 2)
     BigDecimal currentLikes;
+
     @Column(name = "hasPublicLikes", nullable = false)
     boolean publicLikes;
+
     @Column(name = "hasAdminPermissions", nullable = false)
     boolean adminPermissions;
+
     @Column(name = "hasModeratorPermissions", nullable = false)
     boolean moderatorPermissions;
+
     @Column(name = "isDeleted", nullable = false)
     boolean deleted;
 }

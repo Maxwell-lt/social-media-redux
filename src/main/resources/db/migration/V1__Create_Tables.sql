@@ -51,10 +51,11 @@ create table purchase
 -- Likes spent on post
 create table postlikes
 (
+    `id`        int not null primary key auto_increment,
     `likesUsed` int not null,
     `post`      int not null,
     `user`      int not null,
-    primary key (post, user),
+    unique (post, user),
     foreign key (post) references post (id),
     foreign key (user) references user (id)
 );
