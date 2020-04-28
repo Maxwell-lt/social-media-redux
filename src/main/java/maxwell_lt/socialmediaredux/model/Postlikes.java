@@ -24,7 +24,7 @@ public class Postlikes {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    long id;
 
     @ManyToOne
     @JoinColumn(name = "post", referencedColumnName = "id", nullable = false)

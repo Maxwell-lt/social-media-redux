@@ -26,7 +26,7 @@ public class Comment {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    long id;
 
     @Column(name = "imageId", length = 36)
     String imageId;

@@ -26,7 +26,7 @@ public class Purchase {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         @Column(name = "id", nullable = false)
-        int id;
+        long id;
 
         @Column(name = "pricePaid", nullable = false, precision = 4)
         BigDecimal pricePaid;
