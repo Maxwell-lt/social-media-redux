@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 
 @Repository
-public interface PostRepository extends CrudRepository<Post, Long> {
-    Collection<Post> findByUser(User user);
+public interface CommentRepository extends CrudRepository<Comment, Long> {
+    Collection<Comment> findAllByUser(User user);
+
+    Collection<Comment> findAllByPost(Post post);
 }

@@ -21,36 +21,8 @@ public class UserRepositoryTest {
     @Autowired
     UserRepository userRepository;
 
-    @BeforeEach
-    void setUp() {
-
-    }
-
-    @AfterEach
-    void tearDown() {
-        userRepository.deleteAll();
-    }
-
     static User buildDummyUser() {
         return buildDummyUser("testuser", "testuser@example.com");
-    }
-
-    @Test
-    void canGetUserByUsername() {
-        List<User> users = buildDummyUserList();
-        userRepository.saveAll(users);
-        assertThat(userRepository.findByUsername("testuser"))
-                .isNotEmpty()
-                .contains(users.get(0));
-    }
-
-    @Test
-    void canGetUserByEmail() {
-        List<User> users = buildDummyUserList();
-        userRepository.saveAll(users);
-        assertThat(userRepository.findByEmail("email@e.mail"))
-                .isNotEmpty()
-                .contains(users.get(2));
     }
 
     static User buildDummyUser(String username, String email) {
@@ -75,11 +47,33 @@ public class UserRepositoryTest {
                 .collect(Collectors.toList());
     }
 
+    @BeforeEach
+    void setUp() {
+    }
+
+    @AfterEach
+    void tearDown() {
+        userRepository.deleteAll();
+    }
+
+    @Test
+    void canGetUserByUsername() {
+        List<User> users = buildDummyUserList();
+        userRepository.saveAll(users);
+        assertThat(userRepository.findByUsername("testuser")).isNotEmpty().contains(users.get(0));
+    }
+
+    @Test
+    void canGetUserByEmail() {
+        List<User> users = buildDummyUserList();
+        userRepository.saveAll(users);
+        assertThat(userRepository.findByEmail("email@e.mail")).isNotEmpty().contains(users.get(2));
+    }
+
     @Test
     void canSaveAndRetrieveUser() {
         User user = buildDummyUser();
         userRepository.save(user);
-        assertThat(userRepository.findAll())
-                .containsOnly(user);
+        assertThat(userRepository.findAll()).containsOnly(user);
     }
 }

@@ -23,21 +23,21 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "purchase")
 public class Purchase {
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        @Column(name = "id", nullable = false)
-        long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    long id;
 
-        @Column(name = "pricePaid", nullable = false, precision = 4)
-        BigDecimal pricePaid;
+    @Column(name = "pricePaid", nullable = false, precision = 4)
+    BigDecimal pricePaid;
 
-        @Column(name = "likesBought", nullable = false)
-        int likesBought;
+    @Column(name = "likesBought", nullable = false)
+    int likesBought;
 
-        @ManyToOne
-        @JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
-        User user;
+    @ManyToOne
+    @JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
+    User user;
 
-        @Column(name = "timestamp", nullable = false)
-        Timestamp timestamp;
+    @Column(name = "timestamp", nullable = false)
+    Timestamp timestamp;
 }
