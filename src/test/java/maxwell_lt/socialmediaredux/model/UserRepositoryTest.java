@@ -31,12 +31,8 @@ public class UserRepositoryTest {
         userRepository.deleteAll();
     }
 
-    @Test
-    void userRepositoryCanSaveAndRetrieve() {
-        User user = buildDummyUser();
-        userRepository.save(user);
-        assertThat(userRepository.findAll())
-                .containsOnly(user);
+    static User buildDummyUser() {
+        return buildDummyUser("testuser", "testuser@example.com");
     }
 
     @Test
@@ -57,11 +53,7 @@ public class UserRepositoryTest {
                 .contains(users.get(2));
     }
 
-    User buildDummyUser() {
-        return buildDummyUser("testuser", "testuser@example.com");
-    }
-
-    User buildDummyUser(String username, String email) {
+    static User buildDummyUser(String username, String email) {
         return User.builder()
                 .username(username)
                 .email(email)
@@ -75,11 +67,19 @@ public class UserRepositoryTest {
                 .build();
     }
 
-    List<User> buildDummyUserList() {
+    static List<User> buildDummyUserList() {
         return Stream.of(
                 buildDummyUser("testuser", "testuser@example.com"),
                 buildDummyUser("helloworld", "hw@example.com"),
                 buildDummyUser("user_name", "email@e.mail"))
                 .collect(Collectors.toList());
+    }
+
+    @Test
+    void canSaveAndRetrieveUser() {
+        User user = buildDummyUser();
+        userRepository.save(user);
+        assertThat(userRepository.findAll())
+                .containsOnly(user);
     }
 }
