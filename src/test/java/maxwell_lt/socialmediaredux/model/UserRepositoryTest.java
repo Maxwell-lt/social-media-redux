@@ -18,8 +18,7 @@ import static org.assertj.core.api.Assertions.*;
 @SpringBootTest
 public class UserRepositoryTest {
 
-    @Autowired
-    UserRepository userRepository;
+    @Autowired UserRepository userRepository;
 
     static User buildDummyUser() {
         return buildDummyUser("testuser", "testuser@example.com");
@@ -31,7 +30,7 @@ public class UserRepositoryTest {
                 .email(email)
                 .password("p@ssw0rd")
                 .creationDate(Timestamp.from(Instant.now()))
-                .currentLikes(BigDecimal.TEN)
+                .currentLikes(new BigDecimal("998.12"))
                 .publicLikes(true)
                 .adminPermissions(false)
                 .moderatorPermissions(false)
@@ -41,9 +40,9 @@ public class UserRepositoryTest {
 
     static List<User> buildDummyUserList() {
         return Stream.of(
-                buildDummyUser("testuser", "testuser@example.com"),
-                buildDummyUser("helloworld", "hw@example.com"),
-                buildDummyUser("user_name", "email@e.mail"))
+                        buildDummyUser("testuser", "testuser@example.com"),
+                        buildDummyUser("helloworld", "hw@example.com"),
+                        buildDummyUser("user_name", "email@e.mail"))
                 .collect(Collectors.toList());
     }
 

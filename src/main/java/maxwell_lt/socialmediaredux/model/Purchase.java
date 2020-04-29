@@ -28,7 +28,7 @@ public class Purchase {
     @Column(name = "id", nullable = false)
     long id;
 
-    @Column(name = "pricePaid", nullable = false, precision = 4)
+    @Column(name = "pricePaid", nullable = false, precision = 13, scale = 4)
     BigDecimal pricePaid;
 
     @Column(name = "likesBought", nullable = false)

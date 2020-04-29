@@ -38,7 +38,7 @@ public class User {
     @Column(name = "creationDate", nullable = false)
     Timestamp creationDate;
 
-    @Column(name = "currentLikes", nullable = false, precision = 2)
+    @Column(name = "currentLikes", nullable = false, precision = 15, scale = 2)
     BigDecimal currentLikes;
 
     @Column(name = "hasPublicLikes", nullable = false)

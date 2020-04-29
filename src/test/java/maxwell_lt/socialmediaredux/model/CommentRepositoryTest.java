@@ -17,12 +17,9 @@ import static org.assertj.core.api.Assertions.*;
 @SpringBootTest
 public class CommentRepositoryTest {
 
-    @Autowired
-    CommentRepository commentRepository;
-    @Autowired
-    PostRepository postRepository;
-    @Autowired
-    UserRepository userRepository;
+    @Autowired CommentRepository commentRepository;
+    @Autowired PostRepository postRepository;
+    @Autowired UserRepository userRepository;
 
     private List<User> users;
     private List<Post> posts;
@@ -39,18 +36,18 @@ public class CommentRepositoryTest {
 
     static List<Comment> buildDummyCommentList(User user, Post post) {
         return Stream.of(
-                buildDummyComment("What did you just say about me?", user, post),
-                buildDummyComment("^This^", user, post),
-                buildDummyComment("Not today, old friend.", user, post))
+                        buildDummyComment("What did you just say about me?", user, post),
+                        buildDummyComment("^This^", user, post),
+                        buildDummyComment("Not today, old friend.", user, post))
                 .collect(Collectors.toList());
     }
 
     static List<Comment> buildDummyCommentListWithVaryingFKs(
             User userA, User userB, Post postA, Post postB) {
         return Stream.of(
-                buildDummyComment("What did you just say about me?", userA, postA),
-                buildDummyComment("^This^", userB, postA),
-                buildDummyComment("Not today, old friend.", userA, postB))
+                        buildDummyComment("What did you just say about me?", userA, postA),
+                        buildDummyComment("^This^", userB, postA),
+                        buildDummyComment("Not today, old friend.", userA, postB))
                 .collect(Collectors.toList());
     }
 

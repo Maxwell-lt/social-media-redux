@@ -17,10 +17,8 @@ import static org.assertj.core.api.Assertions.*;
 @SpringBootTest
 public class PostRepositoryTest {
 
-    @Autowired
-    PostRepository postRepository;
-    @Autowired
-    UserRepository userRepository;
+    @Autowired PostRepository postRepository;
+    @Autowired UserRepository userRepository;
 
     List<User> users;
 
@@ -35,15 +33,15 @@ public class PostRepositoryTest {
 
     static List<Post> buildDummyPostListWithOneUser(User user) {
         return Stream.of(
-                buildDummyPost("First post!!", user),
-                buildDummyPost("Did someone say post?", user))
+                        buildDummyPost("First post!!", user),
+                        buildDummyPost("Did someone say post?", user))
                 .collect(Collectors.toList());
     }
 
     static List<Post> buildDummyPostListWithMultipleUsers(User userA, User userB) {
         return Stream.of(
-                buildDummyPost("First post!!", userA),
-                buildDummyPost("Did someone say post?", userB))
+                        buildDummyPost("First post!!", userA),
+                        buildDummyPost("Did someone say post?", userB))
                 .collect(Collectors.toList());
     }
 

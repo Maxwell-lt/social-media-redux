@@ -11,12 +11,9 @@ import static org.assertj.core.api.Assertions.*;
 @SpringBootTest
 public class PostlikesRepositoryTest {
 
-    @Autowired
-    PostlikesRepository postlikesRepository;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    PostRepository postRepository;
+    @Autowired PostlikesRepository postlikesRepository;
+    @Autowired UserRepository userRepository;
+    @Autowired PostRepository postRepository;
 
     User user;
     Post post;
